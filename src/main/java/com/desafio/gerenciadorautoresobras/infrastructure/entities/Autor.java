@@ -1,5 +1,6 @@
 package com.desafio.gerenciadorautoresobras.infrastructure.entities;
 
+import com.desafio.gerenciadorautoresobras.infrastructure.enums.SexoEnum;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -23,19 +24,18 @@ public class Autor {
     private Long id;
     @Column(nullable = false)
     private String nome;
-    @Column(nullable = false, length = 240)
-    private String descricao;
-    @Column(name = "data_publicacao", nullable = false)
-    private LocalDate dataPublicacao;
-    @Column(name = "data_exposicao")
-    private LocalDate dataExposicao;
-
+    @Enumerated(EnumType.STRING)
+    private SexoEnum sexo;
+    @Column(nullable = false, unique = true)
+    private String email;
+    @Column(name = "data_nascimento", nullable = false)
+    private LocalDate dataNascimento;
+    @Column(name = "pais_origem", nullable = false)
+    private String paisOrigem;
+    @Column(unique = true)
+    private String cpf;
     @Builder.Default
-    @ManyToMany
-    @JoinTable(name = "autor_obra",
-            joinColumns = @JoinColumn(name = "obra_id"),
-            inverseJoinColumns = @JoinColumn(name = "autor_id")
-    )
-    private List<Autor> autores = new ArrayList<>();
+    @ManyToMany(mappedBy = "autores")
+    private List<Obra> obras = new ArrayList<>();
 
 }

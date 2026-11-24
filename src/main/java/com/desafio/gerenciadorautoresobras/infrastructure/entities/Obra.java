@@ -27,7 +27,6 @@ public class Obra {
     private LocalDate dataPublicacao;
     @Column(name = "data_exposicao")
     private LocalDate dataExposicao;
-
     @Builder.Default
     @ManyToMany
     @JoinTable(
