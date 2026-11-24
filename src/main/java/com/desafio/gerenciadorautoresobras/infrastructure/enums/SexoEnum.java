@@ -1,7 +1,7 @@
 package com.desafio.gerenciadorautoresobras.infrastructure.enums;
 
 public enum SexoEnum {
-    MASCUILONO,
+    MASCULINO,
     FEMININO,
     OUTRO
 }
