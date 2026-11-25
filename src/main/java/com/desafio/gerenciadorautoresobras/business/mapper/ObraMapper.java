@@ -3,8 +3,7 @@ package com.desafio.gerenciadorautoresobras.business.mapper;
 import com.desafio.gerenciadorautoresobras.business.dto.request.ObraRequestDTO;
 import com.desafio.gerenciadorautoresobras.business.dto.response.ObraResponseDTO;
 import com.desafio.gerenciadorautoresobras.infrastructure.entities.Obra;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
+import org.mapstruct.*;
 
 import java.util.List;
 
@@ -18,4 +17,9 @@ public interface ObraMapper {
     ObraResponseDTO toResponseDTO(Obra entity);
 
     List<ObraResponseDTO> toResponseDTOList(List<Obra> entities);
+
+    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "autores", ignore = true)
+    void updateObraFromDTO(ObraRequestDTO dto, @MappingTarget Obra entity);
 }
