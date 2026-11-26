@@ -12,6 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@EqualsAndHashCode
 public class ObraRequestDTO {
     @NotBlank(message = "O nome da obra é obrigatório")
     private String nome;

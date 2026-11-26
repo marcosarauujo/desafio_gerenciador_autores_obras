@@ -9,6 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@EqualsAndHashCode
 public class UsuarioRequestDTO {
     private String nome;
     @NotBlank(message = "O e-mail é obrigatório")
