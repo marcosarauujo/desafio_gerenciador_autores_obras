@@ -36,7 +36,8 @@ public class AutorController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<AutorResponseDTO> atualizarAutor(@PathVariable Long id, @RequestBody AutorRequestDTO dto) {
+    public ResponseEntity<AutorResponseDTO> atualizarAutor(@PathVariable Long id,
+                                                           @RequestBody AutorRequestDTO dto) {
         return ResponseEntity.ok(autorService.atualizarAutor(id, dto));
     }
 

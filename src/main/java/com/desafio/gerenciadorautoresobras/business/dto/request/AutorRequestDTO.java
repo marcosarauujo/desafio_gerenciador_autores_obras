@@ -15,6 +15,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@EqualsAndHashCode
 public class AutorRequestDTO {
 
     @NotBlank(message = "O nome é obrigatório")
